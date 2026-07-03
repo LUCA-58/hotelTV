@@ -1,3 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$REPO_ROOT"
+
+if [[ ! -d .git ]]; then
+	echo "[phase1] error: this script must run in the repository root"
+	exit 1
+fi
+
+mkdir -p public scripts tests
+
+cat > .gitignore <<'EOF'
+# Logs
+*.log
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+coverage/
+EOF
+
+cat > README.md <<'EOF'
 # hotelTV
 
 Incremental setup driven by 4 phase scripts.
@@ -56,3 +82,6 @@ Then open http://localhost:8000.
 - Channel recommendations
 - Hotel announcements
 - Wi-Fi and contact quick info
+EOF
+
+echo "[phase1] repository bootstrap completed"

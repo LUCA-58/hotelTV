@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Noto+Sans:wght@400;500;700&display=swap");
+
+:root {
+	--bg-base: #081221;
+	--bg-accent: #0e223d;
+	--mint: #52e5b2;
+	--aqua: #4dd7ff;
+	--peach: #ffb66d;
+	--card: #0b1b30cc;
+	--line: #2a4966;
+	--text: #f2fbff;
+	--muted: #acd3e8;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: "Noto Sans", "Segoe UI", sans-serif;
+	color: var(--text);
+	background: radial-gradient(circle at 12% 8%, #173f6d 0%, #0c1c32 28%, transparent 55%),
+		linear-gradient(135deg, var(--bg-base), var(--bg-accent));
+	overflow-x: hidden;
+}
+
+
+.bg-glow {
+	position: fixed;
+	width: 38vmax;
+	height: 38vmax;
+	filter: blur(40px);
+	opacity: 0.25;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.bg-glow-a {
+	background: #24ffc8;
+	top: -12vmax;
+	left: -10vmax;
+}
+
+.bg-glow-b {
+	background: #3b93ff;
+	right: -12vmax;
+	bottom: -12vmax;
+}
+
+.tv-shell {
+	position: relative;
+	z-index: 1;
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 1.2rem 1rem 2rem;
+}
+
+.hero {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: flex-start;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background: linear-gradient(135deg, #0d2846cc, #0a1e34cc);
+	border: 1px solid var(--line);
+	border-radius: 20px;
+	backdrop-filter: blur(6px);
+}
+
+.badge {
+	display: inline-block;
+	margin: 0;
+	padding: 0.3rem 0.65rem;
+	border-radius: 999px;
+	background: #183b5f;
+	color: var(--aqua);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+#hotel-name {
+	font-family: "Space Grotesk", "Noto Sans", sans-serif;
+	margin: 0;
+	font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+}
+
+.greeting {
+	margin: 0.4rem 0 0;
+	font-size: 1.05rem;
+	color: var(--muted);
+}
+
+.timebox {
+	text-align: right;
+	min-width: 220px;
+}
+
+.time-label {
+	margin: 0;
+	font-size: 0.8rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.clock {
+	margin: 0.2rem 0 0;
+	font-family: "Space Grotesk", "Noto Sans", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.layout {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+
+.panel,
+.card {
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	padding: 1rem;
+	box-shadow: 0 8px 30px #03122466;
+	min-height: 180px;
+}
+
+.weather-panel {
+	grid-column: span 4;
+}
+
+.wifi-panel {
+	grid-column: span 4;
+}
+
+.contact-panel {
+	grid-column: span 4;
+}
+
+.card {
+	grid-column: span 6;
+}
+
+.panel h2,
+.card h2 {
+	margin-top: 0;
+	margin-bottom: 0.65rem;
+	font-family: "Space Grotesk", "Noto Sans", sans-serif;
+	color: var(--mint);
+}
+
+
+.panel p,
+.card p {
+	margin: 0.2rem 0;
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.weather-now {
+	font-size: 1.4rem;
+	font-weight: 700;
+	margin-top: 0.8rem;
+	color: var(--peach);
+}
+
+.list {
+	margin: 0.4rem 0 0;
+	padding-left: 1.1rem;
+	display: grid;
+	gap: 0.35rem;
+}
+
+@media (max-width: 900px) {
+	.hero {
+		flex-direction: column;
+	}
+
+	.timebox {
+		text-align: left;
+		min-width: 0;
+	}
+
+	.weather-panel,
+	.wifi-panel,
+	.contact-panel,
+	.card {
+		grid-column: span 12;
+	}
+}
